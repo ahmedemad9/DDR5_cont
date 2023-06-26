@@ -69,8 +69,8 @@ $display("test 2 @ %0t : single_write_2",$realtime);
 R_Ready_tb         =1'bx;
 W_Valid_tb        =1'b1;
 W_Data_tb          =32'h5148_AECF;
-W_STRB_tb          =4'hE;
-W_Address_tb       =32'h0000_4568;
+W_STRB_tb          =4'hF;
+W_Address_tb       =32'h0000_4599;
 R_Valid_Address_tb =1'b0;
 R_Address_tb       =32'hxxxx_xxxx;
 #xclk;              
@@ -78,8 +78,8 @@ W_Valid_tb         =1'b0;
 R_Valid_Address_tb =1'b0;
 for(i=0;i<=5;i=i+1) #xclk;
 
-/* test case 11 : single_read_1 */
-$display("test 11 @ %0t : single_read_1",$realtime);
+/* test case 3 : single_read_1 */
+$display("test 3 @ %0t : single_read_1",$realtime);
 R_Ready_tb         =1'b0;
 W_Valid_tb        =1'b0;
 W_Data_tb          =32'hxxxx_xxxx;
@@ -92,20 +92,19 @@ W_Valid_tb         =1'b0;
 R_Valid_Address_tb =1'b0;
 for(i=0;i<=5;i=i+1) #xclk;
 
-/* test case 12 : single_read_2 */
-$display("test 12 @ %0t : single_read_2",$realtime);
+/* test case 4 : single_read_2 */
+$display("test 4 @ %0t : single_read_2",$realtime);
 R_Ready_tb         =1'b0;
 W_Valid_tb        =1'b0;
 W_Data_tb          =32'hxxxx_xxxx;
 W_STRB_tb          =4'hx;
 W_Address_tb       =32'hxxxx_xxxx;
 R_Valid_Address_tb =1'b1;
-R_Address_tb       =32'h0000_4568;
+R_Address_tb       =32'h0000_4599;
 #xclk;              
 W_Valid_tb         =1'b0;
 R_Valid_Address_tb =1'b0;
 for(i=0;i<=5;i=i+1) #xclk;
-
 
 
 end
