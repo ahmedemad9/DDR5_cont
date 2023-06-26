@@ -39,7 +39,7 @@ parameter CL     = 20;
 parameter CLA    = 20;
 parameter CL_max = 40;  //always edit width in VacSel file
 parameter t_act  = 5;
-parameter t_pre   = 5;
+parameter t_pre   = 25;
 
 wire W_Valid_Address;
 assign W_Valid_Address=W_Valid;

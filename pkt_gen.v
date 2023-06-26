@@ -66,7 +66,7 @@ always @* begin
         RDA:begin
                 out1[0]      =   1'b1;
                 out1[1]      =   1'b0;
-                out1[4:2]    =   3'd1;
+                out1[4:2]    =   3'b111;
                 out1[5]      =   1'd0;
                 out1[7:6]    =   {1'b0,BA};
                 out1[10:8]   =   BG[2:0];
