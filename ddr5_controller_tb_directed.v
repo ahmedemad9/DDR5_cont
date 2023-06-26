@@ -50,6 +50,7 @@ initial begin
 
 /* Tests  */
 
+
 /* test case 1 : single_write_1 */
 $display("test 1 @ %0t : single_write_1",$realtime);
 R_Ready_tb         =1'bx;
@@ -70,7 +71,7 @@ R_Ready_tb         =1'bx;
 W_Valid_tb        =1'b1;
 W_Data_tb          =32'h5148_AECF;
 W_STRB_tb          =4'hF;
-W_Address_tb       =32'h0000_4599;
+W_Address_tb       =32'h0000_4823;
 R_Valid_Address_tb =1'b0;
 R_Address_tb       =32'hxxxx_xxxx;
 #xclk;              
@@ -100,12 +101,11 @@ W_Data_tb          =32'hxxxx_xxxx;
 W_STRB_tb          =4'hx;
 W_Address_tb       =32'hxxxx_xxxx;
 R_Valid_Address_tb =1'b1;
-R_Address_tb       =32'h0000_4599;
+R_Address_tb       =32'h0000_4823;
 #xclk;              
 W_Valid_tb         =1'b0;
 R_Valid_Address_tb =1'b0;
 for(i=0;i<=5;i=i+1) #xclk;
-
 
 end
 
