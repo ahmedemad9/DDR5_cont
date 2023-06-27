@@ -49,10 +49,10 @@ begin
         rw_r <= (C_S == WR | C_S == WRA);
         //CL_itr<=3'b000;
         mux_sel<=0;
-        if(C_S==WRA)        CL_itr<=CL_max-(CLA-2);
-        else if (C_S==RDA)  CL_itr<=CL_max-(CLA);
-        else if (C_S==RD)   CL_itr<=CL_max-(CL);
-        else if (C_S==WR)   CL_itr<=CL_max-(CL-2);
+        if(C_S==WRA)        CL_itr<=CL_max-(CLA-2)+1;
+        else if (C_S==RDA)  CL_itr<=CL_max-(CLA)+1;
+        else if (C_S==RD)   CL_itr<=CL_max-(CL)+1;
+        else if (C_S==WR)   CL_itr<=CL_max-(CL-2)+1;
         else                CL_itr<=CL_itr;
 
         if(C_S == WR || C_S == WRA || C_S == RDA || C_S == RDA)

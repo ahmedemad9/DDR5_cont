@@ -1,9 +1,10 @@
-`timescale 1ns/1ns
+`timescale 1ns/100ps
 module ddr5_controller_tb_directed();
 
 /************ TB Wires Decleration ************/
 reg						mclk_tb	=1'b0		;
 reg						xclk_tb	=1'b0		;
+reg                     sm_clk_tb=1'b0      ;
 reg						rst_tb		    	;
 reg						R_Ready_tb			;
 wire	[31	:	0]		R_Data_tb			;
@@ -24,12 +25,17 @@ wire					CS_tb			;
 
 
 /************ Setting clk ************/
-integer h_m_clk=1;
-integer mclk=2;
-always #h_m_clk mclk_tb=!mclk_tb;
+integer h_m_clk=4;
+integer mclk=8;
 
-integer h_x_clk=5;
-integer xclk=10;
+always #h_m_clk begin
+    mclk_tb=!mclk_tb;
+    #4;
+    sm_clk_tb=mclk_tb;
+end
+
+integer h_x_clk=20;
+integer xclk=40;
 always #h_x_clk xclk_tb=!xclk_tb;
 
 /************ Functions ************/
@@ -115,6 +121,7 @@ end
 top_top DUT(
 	.mem_clk(mclk_tb),
 	.axi_clk(xclk_tb),
+    .sm_clk(sm_clk_tb),
     .rst_n(rst_tb),
 	.R_Ready(R_Ready_tb),
 	.R_Data(R_Data_tb),

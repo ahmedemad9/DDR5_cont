@@ -1,6 +1,7 @@
 module top_top(
     input               mem_clk,
                         axi_clk,
+                        sm_clk,
                         rst_n,
                         R_Ready,
                         W_Valid,
